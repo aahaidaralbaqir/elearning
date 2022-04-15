@@ -2,16 +2,24 @@
 
 	include '../../../config/koneksi.php';
 	$nip = $_POST["nip"];
-	$nama_guru = $_POST["nama_guru"];
+	$name = $_POST["name"];
 	$username = $_POST["username"];
 	$password = md5($_POST["password"]);
-	$jk_guru = $_POST["jk_guru"];
-	$alamat_guru = $_POST["alamat_guru"];
-	$tlp_guru= $_POST["tlp_guru"];
-	$query = $koneksi->prepare("INSERT INTO `guru` (`nip`, `nama_guru`, `username`, `password`, `jk_guru`, `alamat_guru`,`tlp_guru`) VALUES ('$nip', '$nama_guru', '$username', '$password', '$jk_guru', '$alamat_guru', '$tlp_guru')");
-	if($query->execute()){
+	$gender = $_POST["gender"];
+	$address = $_POST["address"];
+	$telephone = $_POST["telephone"];
+	$user_query = $koneksi->prepare("INSERT INTO `t_user` (`username`, `password`, `role`, `name`) VALUES('$username', '$password', '1', '$name')");
+	if (!$user_query->execute())
+	{
+		echo "<script>alert('Data guru gagal di tambahkan '); window.location='../../index.php?module=kjIop'</script>";	
+	}
+	$id_user = $koneksi->lastInsertId();
+	
+	try {
+		$query = $koneksi->prepare("INSERT INTO `t_teacher` (`id_user`, `nip`, `adress`, `phone`, `gender`) VALUES ('$id_user', '$nip', '$address', '$telephone', '$gender')");
+		$query->execute();
 		echo "<script>alert('Data guru berhasil di masukan '); window.location='../../index.php?module=OpXit'</script>";
-	}else{
-		echo "Data guru gagal di masukan";
+	} catch (Exception $e) {
+		echo "Data guru gagal di masukan ". $e->getMesssage();
 	}
  ?>
