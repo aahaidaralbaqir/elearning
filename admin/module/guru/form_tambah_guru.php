@@ -9,11 +9,11 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">NIP</label>
-                  <input type="text" class="form-control" ida="exampleInputEmail1" name="nip" placeholder="Nip">
+                  <input type="text" class="form-control" ida="exampleInputEmail1" name="nip" placeholder="Nomor Induk Pegawai">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">NAMA GURU</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="nama_guru" placeholder="Nama Guru">
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="name" placeholder="Nama Guru">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">USERNAME</label>
@@ -25,19 +25,19 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">TELEPON</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="tlp_guru" placeholder="Telepon">
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="telephone" placeholder="Telepon">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">JENIS KELAMIN</label>
-                  <select name="jk_guru" class="form-control">
+                  <select name="gender" class="form-control">
                     <option selected="" disabled="">[ Pilih Jenis Kelamin ]</option>
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="0">Laki-laki</option>
+                    <option value="1">Perempuan</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">ALAMAT</label>
-                 <textarea name="alamat_guru" class="form-control"></textarea>
+                 <textarea name="address" class="form-control"></textarea>
                 </div>
               </div>
               <!-- /.box-body -->
