@@ -260,7 +260,7 @@
              break;
          }
          ?>
-      </div>''
+      </div>
 
     </section>
     <!-- /.content -->
