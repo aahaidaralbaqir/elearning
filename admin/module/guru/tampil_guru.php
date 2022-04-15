@@ -30,17 +30,17 @@
                 <tbody>
                   <?php 
                       $no =1;
-                      $query = $koneksi->prepare("SELECT * FROM guru");
+                      $query = $koneksi->prepare("SELECT TT.*, TU.username, TU.name FROM t_teacher TT INNER JOIN t_user TU ON TU.id = TT.id_user");
                       $query->execute();
                       while($data = $query->FETCH(PDO::FETCH_LAZY)){ ?>
                         <tr>
                           <td><?= $no; ?></td>
                           <td><?= $data["nip"]; ?></td>
-                          <td><?= $data["nama_guru"]; ?></td>
+                          <td><?= $data["name"]; ?></td>
                           <td><?= $data["username"]; ?></td>
-                          <td><?= $data["jk_guru"]; ?></td>
-                          <td><?= $data["alamat_guru"]; ?></td>
-                          <td><?= $data["tlp_guru"]; ?></td>
+                          <td><?= $data["gender"] == 0 ? 'Laki-laki' : 'Perempuan'; ?></td>
+                          <td><?= $data["adress"]; ?></td>
+                          <td><?= $data["telephone"]; ?></td>
                           <td><a href="module/guru/proses_hapus_guru.php?nip=<?= $data['nip']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a> <a href="?module=kwaxAR&nip=<?= $data["nip"]; ?>" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
                         </tr>
                    <?php  $no++; }
